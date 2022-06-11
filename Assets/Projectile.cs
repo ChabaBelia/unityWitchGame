@@ -38,8 +38,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void Explode() {
-        if(impactEffect) {
+    private void Explode() 
+    {
+        if(impactEffect){
             Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
