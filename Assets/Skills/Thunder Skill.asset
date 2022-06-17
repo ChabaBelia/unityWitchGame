@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2292095148ff24448be14f9fc970cdd, type: 3}
-  m_Name: Thunder
+  m_Script: {fileID: 11500000, guid: c81889f77b24ce040bace3a54215eb45, type: 3}
+  m_Name: Thunder Skill
   m_EditorClassIdentifier: 
-  name: "\u0411\u043B\u0438\u0441\u043A\u0430\u0432\u043A\u0430"
+  name: Skill
   skillInfo: "\u0417 \u043D\u0435\u0431\u0430 \u0431'\u0454 \u0435\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u043D\u0438\u0439
     \u0437\u0430\u0440\u044F\u0434, \u0449\u043E \u043F\u0430\u0440\u0430\u043B\u0456\u0437\u0443\u0454
     \u0446\u0456\u043B\u044C \u043D\u0430 1 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
   icon: {fileID: 21300000, guid: 215cf2fc120213a43ade3c4608a38bf5, type: 3}
+  skill: {fileID: 3812714691927346205, guid: 41cd23aefba586a43b47f76dc360085e, type: 3}

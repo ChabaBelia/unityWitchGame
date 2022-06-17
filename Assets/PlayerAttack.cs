@@ -21,8 +21,7 @@ public class PlayerAttack : MonoBehaviour
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             animator.SetFloat("AttackDirection", mousePos.x > playerPosX ? 1 : 0);
             Quaternion ballRotation = (mousePos.x < playerPosX) ? Quaternion.Euler(0,0,180) : firePosition.rotation;
-            GameObject newObject = Instantiate(projectile, firePosition.position, ballRotation); 
-            Projectile yourObject = newObject.GetComponent<Projectile>();
+            Instantiate(projectile, firePosition.position, ballRotation); 
         } 
     }
 }

@@ -7,7 +7,7 @@ public class SkillInfo : MonoBehaviour
 {
     public Text text;
     Image image;
-    // Start is called before the first frame update
+    
     void Start()
     {
         image = GetComponent<Image>();

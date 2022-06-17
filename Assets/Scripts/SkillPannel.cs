@@ -57,11 +57,13 @@ public class SkillPannel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (KeyValuePair<KeyCode, SkillSlot> skill in skillMap)
-        {
-            if (Input.GetKeyDown(skill.Key)) {
-                Debug.Log("Skill Cast: " + skill.Key.ToString());
-                skill.Value.UseSkill();
+        if(skillMap != null) {
+            foreach (KeyValuePair<KeyCode, SkillSlot> skill in skillMap)
+            {
+                if (Input.GetKeyDown(skill.Key)) { // && !Skill cool down
+                    Debug.Log("Skill Cast: " + skill.Key.ToString());
+                    skill.Value.UseSkill();
+                }
             }
         }
     }

@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ManaBar manaBar;
 
+    int mana_recovery_interval = 125;
+    int health_recovery_interval = 300;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,34 +30,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            UseMana(10);
+        if(currentMana < maxMana && Time.frameCount % mana_recovery_interval == 0) {
+           addMana(1);
+        }
+        if(currentHealth < maxHealth && Time.frameCount % health_recovery_interval == 0) {
+            addHealth(1);
         }
     }
 
     public void addMana(int points) {
-        Debug.Log("Current Mana " + currentMana);
-        Debug.Log("addMana " + points);
         currentMana += points;
-        Debug.Log("Current Mana " + currentMana);
         manaBar.SetMana(currentMana);
     }
 
     public void addHealth(int points) {
-        Debug.Log("addHealth " + points);
         currentHealth += points;
         healthBar.SetHealth(currentHealth);
     }
 
-    void UseMana(int points) {
-        Debug.Log("Use Mana " + points);
+    public void UseMana(int points) {
         currentMana -= points;
-        Debug.Log("Current Mana " + currentMana);
         manaBar.SetMana(currentMana);
     }
 
     public void TakeDamage(int damage, float attackDirection) {
-        Debug.Log("TakeDamage " + damage);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         animator.SetTrigger("Hurt");

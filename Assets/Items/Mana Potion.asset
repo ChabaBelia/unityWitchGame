@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8d040d8dadb59b42b2c0fa2e515038a, type: 3}
-  m_Name: New Mana Potion
+  m_Name: Mana Potion
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 21300000, guid: 8618275697889394ab236b5e274b2896, type: 3}
+  name: Mana Potion
+  icon: {fileID: 21300000, guid: 4a0abc910cd63e546a2042af88540e20, type: 3}
   isDefaultItem: 0
-  player: {fileID: 0}
-  manaPointsRestore: 10
+  manaPointsRestore: 50

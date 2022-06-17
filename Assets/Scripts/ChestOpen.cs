@@ -48,13 +48,15 @@ public class ChestOpen : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        enter2d = true;
-        keyCode.SetActive(true);
-        chestClose.SetActive(false);
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.tag == "Player") {
+            enter2d = true;
+            keyCode.SetActive(true);
+            chestClose.SetActive(false);
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D collision) {
         enter2d = false;
         keyCode.SetActive(false);
         chestOpen.SetActive(false);

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3812714691927346202}
   - component: {fileID: 3812714691927346203}
   - component: {fileID: 3812714691927346204}
-  - component: {fileID: 3812714691927346201}
   - component: {fileID: 6118465342742243597}
   - component: {fileID: 2589899541798226022}
+  - component: {fileID: 7083557602868940947}
   m_Layer: 0
   m_Name: Thunder
   m_TagString: Untagged
@@ -108,21 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3812714691927346201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3812714691927346205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134ff30390eff054897476e2403b8381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 10
-  projectileDistance: 10
-  impactEffect: {fileID: 0}
 --- !u!58 &6118465342742243597
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,3 +145,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7083557602868940947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812714691927346205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d76c4821fb5d64ba6d39d08374559b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50

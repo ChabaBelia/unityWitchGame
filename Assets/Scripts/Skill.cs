@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Skill", menuName = "Skill Tree/Skill")]
 public class Skill : ScriptableObject {
-
 	new public string name = "Skill";	// Name of the item
     new public string skillInfo;
     SkillInfo info;
-	public Sprite icon = null;				// Item icon
+	public Sprite icon = null;	
+    public bool isCoolDown { get; set; }
+    public float cooldownTime = 5; 
+    
+    //public SkillUse skillUse;
 
     public void setSkillInfo(SkillInfo setInfo)
     {
@@ -19,10 +22,7 @@ public class Skill : ScriptableObject {
 	// Called when the item is pressed in the inventory
 	public virtual void Use ()
 	{
-		// Use the item
-		// Something might happen
-
-		Debug.Log("Using " + name);
+        Debug.Log("Base Skill Used");
 	}
 
     public virtual void ShowInfo()

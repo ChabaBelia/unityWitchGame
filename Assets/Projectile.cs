@@ -10,12 +10,13 @@ public class Projectile : MonoBehaviour
     public GameObject impactEffect;
     private Rigidbody2D rigidbody;
     private Vector2 startPosition;
+    public int damage = 30;
+    public string damageType = "None";
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        Debug.Log(transform.right.x);
         startPosition = rigidbody.position;
         rigidbody.velocity = projectileSpeed * transform.right;
     }
@@ -27,12 +28,17 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            if(collision.gameObject.GetComponent<Enemy>()) {
-                collision.gameObject.GetComponent<Enemy>().TakeDamage(30);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if(enemy) {
+                if(damageType == "None") {
+                    enemy.TakeDamage(damage);
+                } else if (damageType == "Fire") {
+                    enemy.TakeFireDamage(damage);
+                }
             }
             Explode();
         }

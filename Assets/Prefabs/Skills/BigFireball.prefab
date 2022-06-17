@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7738793603265315444}
   - component: {fileID: 7738793603265315447}
   - component: {fileID: 7738793603265315446}
-  - component: {fileID: 7738793603265315445}
   - component: {fileID: 7846173460749999016}
   - component: {fileID: 3014407916305001305}
+  - component: {fileID: 7640177611483310209}
   m_Layer: 0
   m_Name: BigFireball
   m_TagString: Untagged
@@ -108,21 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7738793603265315445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7738793603265315441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134ff30390eff054897476e2403b8381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 10
-  projectileDistance: 10
-  impactEffect: {fileID: 0}
 --- !u!50 &7846173460749999016
 Rigidbody2D:
   serializedVersion: 4
@@ -160,3 +145,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &7640177611483310209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738793603265315441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134ff30390eff054897476e2403b8381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 10
+  projectileDistance: 10
+  impactEffect: {fileID: 0}
+  damage: 50
+  damageType: Fire

@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour
     {
         player.addMana(points);
     }
+  
+    public void RestoreHealth(int points)
+    {
+        player.addHealth(points);
+    }
 
     void Update()
     {

@@ -9,16 +9,18 @@ public class SkillSlot : MonoBehaviour
     string keyCode;
     public Text textKey;
     public Image skillImage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Image coolDownOverlay;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(skill && skill.isCoolDown) {
+            coolDownOverlay.fillAmount -= 1 / skill.cooldownTime * Time.deltaTime;
+            if(coolDownOverlay.fillAmount <= 0) {
+                coolDownOverlay.fillAmount = 0;
+                skill.isCoolDown = false;
+            }
+        }
     }
 
     public void OnClick()
@@ -28,7 +30,9 @@ public class SkillSlot : MonoBehaviour
 
     public void UseSkill()
     {
-        if(!skill) return;
+        if(!skill || skill.isCoolDown) return;
+        skill.isCoolDown = true;
+        coolDownOverlay.fillAmount = 1;
         skill.Use();
     }
 

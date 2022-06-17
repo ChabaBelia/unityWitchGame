@@ -6,6 +6,6 @@ public class ImpactEffect : MonoBehaviour
 {
     public void onLastFrame()
     {
-		  Destroy(gameObject);
+		Destroy(gameObject);
     }
 }

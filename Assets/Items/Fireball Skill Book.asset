@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 547b4e5d7eee4be4f8f90407b3afca0f, type: 3}
-  m_Name: New Skill Book
+  m_Name: Fireball Skill Book
   m_EditorClassIdentifier: 
-  name: Skill Book 1
-  icon: {fileID: 21300000, guid: 891ee3650df36484aa445182dd678ff4, type: 3}
+  name: Fireball Skill Book
+  icon: {fileID: 21300000, guid: 0338be70438fa5c4bb19e7190d6f9355, type: 3}
   isDefaultItem: 0
-  skill: {fileID: 11400000, guid: e24e041b38a516a44adcee4da382dc18, type: 2}
+  skill: {fileID: 11400000, guid: 70e5f6da08183574e8b61f25503beeaf, type: 2}
