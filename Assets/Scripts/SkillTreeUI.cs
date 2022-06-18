@@ -56,16 +56,7 @@ public class SkillTreeUI : MonoBehaviour
 
     public void updateSkillTree()
     {
-        Debug.Log("Updating UI");
-
-        for (int i = 0 ; i < slots.Length; ++i)
-        {
-            if(!slots[i].Learned())
-            {
-                slots[i].Lock();
-            }
-        }
-
+        Debug.Log("Updating Update Skill Tree UI");
         SkillPannel.instance.updateSkillPannel();
     }
 
@@ -79,7 +70,7 @@ public class SkillTreeUI : MonoBehaviour
         {
             if(skillsSlots[i].Learned())
             {
-                skills.Add(slots[i].skill);
+                skills.Add(skillsSlots[i].skill);
             }
         }
 
