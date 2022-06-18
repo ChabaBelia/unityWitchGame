@@ -672,6 +672,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d06a51812a1fcd548be3ed8df9cabbda, type: 2}
     - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 945901580}
+    - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
       propertyPath: skillTree
       value: 
       objectReference: {fileID: 1614397667}
@@ -788,6 +792,10 @@ PrefabInstance:
       propertyPath: skill
       value: 
       objectReference: {fileID: 11400000, guid: f6eebf627196c8e49a617289b1234d3b, type: 2}
+    - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1380869955}
     - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
       propertyPath: skillTree
       value: 
@@ -1100,7 +1108,9 @@ MonoBehaviour:
   - {fileID: 6216624611794371195, guid: 134d68c10da51654ea9a79f7b3d3aca7, type: 3}
   - {fileID: 3834433676022994164, guid: 017c145b0d049a942a260ca985698d75, type: 3}
   - {fileID: 8924525550549940860, guid: 5f5ec4193dbde6b4d8b8039852f67eb0, type: 3}
+  - {fileID: 3834433676022994164, guid: f79b3dc69385a4d4f902a7732feefc58, type: 3}
   chests:
+  - {fileID: 8126017231617904851, guid: 8534df3082a307c45804d9ed77502033, type: 3}
   - {fileID: 8126017231617904851, guid: 8534df3082a307c45804d9ed77502033, type: 3}
   - {fileID: 8126017231617904851, guid: 8534df3082a307c45804d9ed77502033, type: 3}
   - {fileID: 8126017231617904851, guid: 8534df3082a307c45804d9ed77502033, type: 3}
@@ -1349,6 +1359,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dd26cf4954936df4b95a606bd170d081, type: 2}
     - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 3125098167063893722}
+    - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
       propertyPath: skillTree
       value: 
       objectReference: {fileID: 1614397667}
@@ -1465,6 +1479,10 @@ PrefabInstance:
       propertyPath: skill
       value: 
       objectReference: {fileID: 11400000, guid: 5e719d2ef439a2b4b8d2459298168b68, type: 2}
+    - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 3125098167063893722}
     - target: {fileID: 5552260729038723564, guid: 6d150383077ecfd43be60c0bcbfc473a, type: 3}
       propertyPath: skillTree
       value: 
