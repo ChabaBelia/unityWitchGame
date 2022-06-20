@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547b4e5d7eee4be4f8f90407b3afca0f, type: 3}
+  m_Name: Barrier Skill Book
+  m_EditorClassIdentifier: 
+  name: "\u041C\u0430\u0433\u0456\u0447\u043D\u0438\u0439 \u0431\u0430\u0440'\u0454\u0440"
+  icon: {fileID: 21300000, guid: 00e54353d6a54ed41ab370db9ff29f40, type: 3}
+  isDefaultItem: 0
+  skill: {fileID: 11400000, guid: 67959240ffbd18943bbd53e956b5f369, type: 2}

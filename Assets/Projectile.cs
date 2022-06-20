@@ -33,12 +33,10 @@ public class Projectile : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if(enemy) {
-                if(damageType == "None") {
-                    enemy.TakeDamage(damage);
-                } else if (damageType == "Fire") {
-                    enemy.TakeFireDamage(damage);
-                }
+            if(enemy && damageType == "None") {
+                enemy.TakeDamage(damage, transform.eulerAngles);
+            } else if (enemy && damageType == "Fire") {
+                enemy.TakeFireDamage(damage);
             }
             Explode();
         }

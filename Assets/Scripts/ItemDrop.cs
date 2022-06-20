@@ -11,7 +11,7 @@ public class ItemDrop : MonoBehaviour
 	public delegate void OnItemDrop();
 	public OnItemDrop onItemDrop;
 
-    public float speed = 1f;
+    public float speed = 0.005f;
     public Vector3 target;
     public float arcHeight;
 
@@ -58,17 +58,20 @@ public class ItemDrop : MonoBehaviour
         transform.position = nextPos;
 
         // I presume you disable/destroy the arrow in Arrived so it doesn't keep arriving.
-        if(_progress == 1.0f)
+        if(_progress == 1.0f) {
             Arrived();
+        }
     }
 
     public void Arrived()
     {
         Debug.Log("Drop arive .....");
-        if(onItemDrop != null)
+        if(onItemDrop != null) {
             onItemDrop();
+        }
 
-        if(item)
+        if(item) {
             Instantiate(item, transform.position, Quaternion.identity);
+        }
     }
 }

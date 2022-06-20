@@ -2,33 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Cainos.PixelArtMonster_Dungeon;
 
 public class Enemy : MonoBehaviour
 {
     public HealthBar healthBar;
     public Animator animator;
-    public GameObject player;
-    public AIPath aiPath;
 
     public int maxHealth = 200;
     int currentHealth;
 
-    int damage = 5;
-    bool is_attacking = false;
+    int damage = 10;
     bool is_dead = false;
-    float attackDirection;
 
-    int attak_interval = 125;
     int burn_interval = 75;
     bool is_burning;
     SpriteRenderer smoke;
-
+    Vector3 initial_transform;
     int burning_damage = 10;
+    int attackDirection;
+    bool is_attacking = false;
+    PixelMonster pm;
+    AIPath aiPath;
+    GameObject player;
+    bool colliding_player = false;
 
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        initial_transform = transform.localScale;
          
         SpriteRenderer[] allChildren = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer child in allChildren)
@@ -38,25 +42,8 @@ public class Enemy : MonoBehaviour
                 break;
             }
         }
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            is_attacking = true;
-            animator.SetBool("Attack", true);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-           is_attacking = false;
-           animator.SetBool("Attack", false);
-        }
+        pm = GetComponent<PixelMonster>();
+        aiPath = GetComponent<AIPath>();
     }
 
     void Update() {
@@ -65,27 +52,47 @@ public class Enemy : MonoBehaviour
         if (is_burning && Time.frameCount % burn_interval == 0) {
             DecreaseHealth(burning_damage);
         }
-        
-        attackDirection = ((player.transform.position.x - gameObject.transform.position.x) > 0) ? 1 : 0;
-        if(attackDirection > 0) {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+
+        attackDirection = ((player.transform.position.x - gameObject.transform.position.x) > 0) ? 1 : -1;
+        pm.Facing = attackDirection;
+
+        if(aiPath.desiredVelocity.x >= 0.01f || aiPath.desiredVelocity.x <= -0.01f) {
+            pm.MovingBlend = 0.05f;
+            is_attacking = false;
         } else {
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            pm.MovingBlend = 0.0f;
+            is_attacking = true;
         }
-        if (is_attacking && Time.frameCount % attak_interval == 0) {
+
+        if (is_attacking && !pm.IsAttacking) {
+            pm.Attack();
+        }
+    }
+
+    public void hitPlayer() {
+        if(colliding_player) {
+            attackDirection = ((player.transform.position.x - gameObject.transform.position.x) > 0) ? 1 : 0;
             player.GetComponent<Player>().TakeDamage(damage, attackDirection);
         }
     }
 
-    public void TakeDamage(int damage) 
+    public void TakeDamage(int damage, Vector3 projectile_rotation) 
     {
-        animator.SetTrigger("Hurt");
+        if(pm.Facing == -1 && projectile_rotation.z == 180
+            || pm.Facing == 1 && projectile_rotation.z == 0
+        ) {
+             animator.SetTrigger("InjuredBack");
+        } else {
+            animator.SetTrigger("InjuredFront");
+        }
+       
         DecreaseHealth(damage);
     }
 
     public void TakeElectricityDamage(int damage) {
+         // TODO: calc front and back
         clearAllEffects();
-        animator.SetTrigger("HurtByElectricity");
+        animator.SetTrigger("InjuredFront");
         DecreaseHealth(damage);
     }
 
@@ -131,4 +138,22 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     } 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enter");
+       if (collision.tag == "Player")
+       {
+           colliding_player = true;
+       }
+   }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+          Debug.Log("Exit");
+        if (collision.tag == "Player")
+        {
+            colliding_player = false;
+        }
+    }
 }

@@ -10,11 +10,10 @@ public class ThunderSkill : Skill
 
     public override void Use() {
         base.Use();
-        Debug.Log("Try Thunder Skill Used On enemy ");
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            Debug.Log("Thunder Skill Used On enemy ");
             Instantiate(skill, enemy.transform.position, enemy.transform.rotation);
         }
         

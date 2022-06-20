@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     int mana_recovery_interval = 125;
     int health_recovery_interval = 300;
+    SpriteRenderer barrier;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,15 @@ public class Player : MonoBehaviour
 
         healthBar.SetMaxHealth(maxHealth);
         manaBar.SetMaxMana(maxMana);
+
+        SpriteRenderer[] allChildren = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer child in allChildren)
+        {
+            if(child.tag == "MagicBarrier") {
+                barrier = child;
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -53,10 +63,24 @@ public class Player : MonoBehaviour
         manaBar.SetMana(currentMana);
     }
 
-    public void TakeDamage(int damage, float attackDirection) {
+    public void TakeDamage(int damage, int attackDirection) {
+        if(barrier.enabled) {
+            damage = damage % 2;
+        }
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         animator.SetTrigger("Hurt");
         animator.SetFloat("AttackDirection", attackDirection);
     }
+    
+    public void EnableBarrier(int seconds) {
+        barrier.enabled = true;
+        StartCoroutine(DisableBarrier(seconds));
+    }
+    
+    IEnumerator DisableBarrier(float time)
+    {
+        yield return new WaitForSeconds(time);
+        barrier.enabled = false;
+    } 
 }
