@@ -4,25 +4,25 @@ using UnityEngine.UI;
 public class SkillLearnSlot : MonoBehaviour
 {
     public Image iconDisable;
-    public Image iconClose;
+    public Image imageUnknownSkill;
     Image iconSkill;
     Button useButton;
     public Skill skill;
     public SkillTreeUI skillTree;
     bool learned = false;
-    bool locked = false;
     bool opened = false;
     bool enableToLearn = false;
     public SkillLearnSlot[] slots;
+    public SkillLearnSlot parent;
+
 
     public void Start()
     {
         Debug.Log("\n\nStart SkillLearnSlot - " + skill.name);
         useButton = GetComponent<Button>();
         iconSkill = GetComponent<Image>();
-        if(iconDisable) 
-            iconDisable.enabled = true;
-        iconClose.enabled = true;
+        iconDisable.enabled = false;
+        imageUnknownSkill.enabled = true;
         iconSkill.sprite = skill.icon;
         iconSkill.enabled = false;
         enableToLearn = false;
@@ -37,31 +37,65 @@ public class SkillLearnSlot : MonoBehaviour
 
     public void openSkill()
     {
-        iconClose.enabled = false;
+        Debug.Log("Open skill to learn: " + skill.name);
+        imageUnknownSkill.enabled = false;
         opened = true;
 
-        if(locked) return;
+        if(!enableToLearn){
+            iconSkill.enabled = true;
+            iconDisable.enabled = true;
+            Debug.Log("Learned skill locked make grace scale: " + skill.name);
+            return;
+        }
 
-        if(enableToLearn)
-            enableSkillToLearn();
+        enableSkillToLearn();
     }
 
     public void enableSkillToLearn()
     {
         useButton = GetComponent<Button>();
-        Debug.Log("enableSkillToLearn " + skill.name);
+        Debug.Log("Try Skill To Learn: " + skill.name);
         enableToLearn = true;
-        if(locked || learned || !opened) return;
+        if(learned || !opened)
+        {
+            Debug.Log("Skill closed need book: " + skill.name);
+            return;
+        }
 
+        Debug.Log("Skill Learned: " + skill.name);
         useButton.enabled = true;
         useButton.interactable = true;
         iconSkill.enabled = true;
+        iconDisable.enabled = false;
+    }
+
+    public void unableSkillToLearn()
+    {
+        Debug.Log("unable Skill To Learn: " + skill.name);
+        enableToLearn = false;
+        iconDisable.enabled = true;
+        useButton.enabled = false;
+    }
+
+    public void onChildLearnSkill()
+    {
+        for (int i = 0 ; i < slots.Length; ++i)
+        {
+            if(!slots[i].Learned())
+            {
+                slots[i].unableSkillToLearn();
+            }
+        }
     }
 
     public void learnSkill()
     {
-        Debug.Log("learnSkill " + skill.name);
-        if(locked || learned || !opened) return;
+        Debug.Log("Try to learn skill " + skill.name);
+        if(!enableToLearn || learned || !opened)
+        { 
+            Debug.Log("Unable to Learn " + skill.name);
+            return;
+        }
 
         learned = true;
         for (int i = 0 ; i < slots.Length; ++i)
@@ -70,9 +104,10 @@ public class SkillLearnSlot : MonoBehaviour
         }
         skillTree.updateSkillTree();
 
+        if(parent)
+            parent.onChildLearnSkill();
         useButton.enabled = false;
-        if(iconDisable)
-            iconDisable.enabled = false;
+        Debug.Log("learned Skill: " + skill.name);
     }
 
     public void forgetSkill()
@@ -85,33 +120,10 @@ public class SkillLearnSlot : MonoBehaviour
         return learned;
     }
 
-    public void Lock()
-    {
-        Debug.Log("Lock " + skill.name);
-        locked = true;
-        useButton.enabled = false;
-        for (int i = 0 ; i < slots.Length; ++i)
-        {
-            slots[i].Lock();
-        }
-    }
-
-    public void Unlock()
-    {
-        locked = true;
-        for (int i = 0 ; i < slots.Length; ++i)
-        {
-            slots[i].Unlock();
-        }
-    }
-
-    public bool Locked()
-    {
-        return locked;
-    }
-
     public void pointerEnter()
     {
+        if(!opened) return;
+
         skill.ShowInfo();
     }
 

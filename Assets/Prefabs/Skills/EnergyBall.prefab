@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1201173447, guid: 8c96918940ea5d54d977457d770e8288, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,7 +122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 10
   projectileDistance: 10
-  impactEffect: {fileID: 8530638431072052173, guid: b31ae817b52fae9489f833786d41b083, type: 3}
+  impactEffect: {fileID: 8530638431072052173, guid: b31ae817b52fae9489f833786d41b083,
+    type: 3}
+  damage: 30
+  damageType: None
 --- !u!58 &6093098427518400277
 CircleCollider2D:
   m_ObjectHideFlags: 0

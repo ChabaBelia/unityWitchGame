@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3597177279011839702}
   - component: {fileID: 3597177279011839703}
   - component: {fileID: 3597177279011839701}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: PF Bat - Black
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0
   pickNextWaypointDist: 2
   endReachedDistance: 2
   alwaysDrawGizmos: 0
@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782584581886889357}
   - component: {fileID: 4782584581886889356}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: EnemyHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 4782584581901386606}
   - component: {fileID: 4782584581901386604}
   - component: {fileID: 4782584581901386605}
-  m_Layer: 5
+  m_Layer: 20
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 4782584583682228109}
   - component: {fileID: 4782584583682228107}
   - component: {fileID: 4782584583682228108}
-  m_Layer: 5
+  m_Layer: 20
   m_Name: Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 4782584583791201697}
   - component: {fileID: 4782584583791201631}
   - component: {fileID: 4782584583791201696}
-  m_Layer: 5
+  m_Layer: 20
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911841}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004929}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375,
+    w: 1}
   m_LocalPosition: {x: -0.24827899, y: 0.030295467, z: -0.000000009536743}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -614,7 +615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911843}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +629,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004931}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.000000080097685, z: -0.00000002980232, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.000000080097685, z: -0.00000002980232,
+    w: 1}
   m_LocalPosition: {x: -0.27929047, y: 0.03029539, z: -0.0000000047683715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -645,7 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911845}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +661,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004933}
-  m_LocalRotation: {x: 0.0000000024120899, y: -0.000000076318976, z: -0.55299944, w: 0.8331816}
+  m_LocalRotation: {x: 0.0000000024120899, y: -0.000000076318976, z: -0.55299944,
+    w: 0.8331816}
   m_LocalPosition: {x: -0.328647, y: 0.205002, z: -0.0671656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -682,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911847}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +699,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004935}
-  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756, w: 1}
+  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756,
+    w: 1}
   m_LocalPosition: {x: -0.09508297, y: -0.03388503, z: -0.0000000047683715}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -713,7 +717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911849}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004937}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375,
+    w: 1}
   m_LocalPosition: {x: -0.1225869, y: 0.03029541, z: -0.000000009536743}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -744,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911851}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +763,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004939}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375,
+    w: 1}
   m_LocalPosition: {x: -0.15503593, y: 0.030295486, z: -0.000000014305114}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -775,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911853}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +795,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004941}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375,
+    w: 1}
   m_LocalPosition: {x: -0.18630402, y: 0.030295428, z: -0.0000000047683715}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -806,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911855}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing R3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +827,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004943}
-  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375, w: 1}
+  m_LocalRotation: {x: 0.000000042867637, y: -0.00000008009768, z: -0.00000003637375,
+    w: 1}
   m_LocalPosition: {x: -0.21758339, y: 0.030295467, z: -0.0000000047683715}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -837,7 +845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911857}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +859,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004945}
-  m_LocalRotation: {x: -0.000000025690953, y: -0.000000017625274, z: 0.000000029802322, w: 1}
+  m_LocalRotation: {x: -0.000000025690953, y: -0.000000017625274, z: 0.000000029802322,
+    w: 1}
   m_LocalPosition: {x: -0.27783194, y: -0.03388499, z: 0.0000000047683715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -868,7 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911859}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911861}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911863}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911865}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +993,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004953}
-  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756, w: 1}
+  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756,
+    w: 1}
   m_LocalPosition: {x: -0.13432796, y: -0.03388503, z: 0}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -1001,7 +1011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911867}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1025,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004955}
-  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756, w: 1}
+  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756,
+    w: 1}
   m_LocalPosition: {x: -0.17121391, y: -0.03388505, z: -0.0000000047683715}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -1032,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911869}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1057,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004957}
-  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756, w: 1}
+  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756,
+    w: 1}
   m_LocalPosition: {x: -0.20693237, y: -0.03388503, z: 0.000000009536743}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -1063,7 +1075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911871}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Wing L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1089,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637004959}
-  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756, w: 1}
+  m_LocalRotation: {x: -0.00000002569094, y: -0.000000017625286, z: 0.000000036373756,
+    w: 1}
   m_LocalPosition: {x: -0.24386147, y: -0.03388505, z: 0.0000000047683715}
   m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.0001}
   m_ConstrainProportionsScale: 0
@@ -1095,7 +1108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8458852153636911765}
   - component: {fileID: 8458852153648507891}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911809}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Eye Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911811}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Eye Injured
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1266,7 +1279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911813}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Eye Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1297,7 +1310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911815}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911817}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Foot R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911819}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Foot R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911821}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Foot L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1408,7 +1421,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637005037}
-  m_LocalRotation: {x: -0.000000042550436, y: -0.000000081859866, z: -0.36890295, w: 0.9294679}
+  m_LocalRotation: {x: -0.000000042550436, y: -0.000000081859866, z: -0.36890295,
+    w: 0.9294679}
   m_LocalPosition: {x: -0.1285313, y: -0.022693252, z: -0.0000000047683715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1425,7 +1439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911823}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Foot L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911825}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1494,7 +1508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911827}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1528,7 +1542,7 @@ GameObject:
   - component: {fileID: 8458852153636911831}
   - component: {fileID: 8458852153644389687}
   - component: {fileID: 7582078222487546502}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1614,7 +1628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911833}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Ear R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1628,7 +1642,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458852153637005049}
-  m_LocalRotation: {x: 0.0000000010171751, y: -0.0000000012199902, z: -0.018053072, w: 0.99983704}
+  m_LocalRotation: {x: 0.0000000010171751, y: -0.0000000012199902, z: -0.018053072,
+    w: 0.99983704}
   m_LocalPosition: {x: -0.12786831, y: -0.013843708, z: 0.0000000047683715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1645,7 +1660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911835}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Ear R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911837}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Ear L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,7 +1723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458852153636911839}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Rig Ear L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

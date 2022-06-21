@@ -6,61 +6,69 @@ using UnityEngine.UI;
 public class ItemDrop : MonoBehaviour
 {
     GameObject item;
-    public Image image;
     public SpriteRenderer m_SpriteRenderer;
 	public delegate void OnItemDrop();
 	public OnItemDrop onItemDrop;
 
-    public float speed = 0.005f;
-    public Vector3 target;
-    public float arcHeight;
 
-    Vector3 _startPosition;
-    float _stepScale;
-    float _progress = 0.0f;
+    public Vector3 Target;
+    public float firingAngle = 45.0f;
+    public float gravity = 9.8f;
+ 
+    public Transform Projectile;      
+    private Transform myTransform;
 
     public void setItem(GameObject _item)
     {
         item = _item;
         ItemPickup _itemPickup = item.GetComponent<ItemPickup>();
-        image.sprite = _itemPickup.m_item.icon;
         m_SpriteRenderer.sprite = _itemPickup.m_item.icon;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _startPosition = transform.position;
+        Vector3 _startPosition = transform.position;
+        _startPosition.x += 1;
 
-        float distance = 1;
-        target = _startPosition;
-        target.x += distance;
-
-        // This is one divided by the total flight duration, to help convert it to 0-1 progress.
-        _stepScale = 0.5f;
+        Target = _startPosition;
+        StartCoroutine(SimulateProjectile());
     }
 
-    void Update() {
-        // Increment our progress from 0 at the start, to 1 when we arrive.
-        _progress = Mathf.Min(_progress + Time.deltaTime * _stepScale, 1.0f);
+    void Awake()
+    {
+        myTransform = transform;      
+    }
+ 
+    IEnumerator SimulateProjectile()
+    {     
+        // Move projectile to the position of throwing object + add some offset if needed.
+        Projectile.position = myTransform.position + new Vector3(0, 0.0f, 0);
+       
+        // Calculate distance to target
+        float target_Distance = Vector3.Distance(Projectile.position, Target);
+ 
+        // Calculate the velocity needed to throw the object to the target at specified angle.
+        float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
+ 
+        // Extract the X  Y componenent of the velocity
+        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
+        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+ 
+        // Calculate flight time.
+        float flightDuration = target_Distance / Vx;
 
-        // Turn this 0-1 value into a parabola that goes from 0 to 1, then back to 0.
-        float parabola = 1.0f - 4.0f * (_progress - 0.5f) * (_progress - 0.5f);
-
-        // Travel in a straight line from our start position to the target.        
-        Vector3 nextPos = Vector3.Lerp(_startPosition, target, _progress);
-
-        // Then add a vertical arc in excess of this.
-        nextPos.y += parabola * arcHeight;
-
-        // Continue as before.
-        transform.LookAt(nextPos, transform.forward);
-        transform.position = nextPos;
-
-        // I presume you disable/destroy the arrow in Arrived so it doesn't keep arriving.
-        if(_progress == 1.0f) {
-            Arrived();
+        float elapse_time = 0;
+ 
+        while (elapse_time < flightDuration)
+        {
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
+           
+            elapse_time += Time.deltaTime;
+ 
+            yield return null;
         }
+        Arrived();
     }
 
     public void Arrived()

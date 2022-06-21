@@ -38,7 +38,12 @@ namespace Cainos.PixelArtMonster_Dungeon
             rotZ += (fx.Facing == 1) ? angleOffset : -angleOffset;
             projectile.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotZ);
 
+            SpriteRenderer sr = projectile.GetComponent<SpriteRenderer>();
+            sr.sortingLayerName = fx.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>()[0].sortingLayerName;
+            sr.sortingOrder = 3;
+
             var rb2d = projectile.GetComponent<Rigidbody2D>();
+
             if ( rb2d)
             {
                 rb2d.velocity = projectile.transform.right * speed;

@@ -34,6 +34,7 @@ public class ChestOpen : MonoBehaviour
     void drop()
     {
         ItemDrop _itemDrop = itemDrop.GetComponent<ItemDrop>();
+        _itemDrop.enabled = true;
         _itemDrop.onItemDrop = onItemDrop;
 
         GameObject item = GameManager.instance.popItem();
