@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public ManaBar manaBar;
 
     int mana_recovery_interval = 125;
-    int health_recovery_interval = 300;
+    int health_recovery_interval = 1000;
     SpriteRenderer barrier;
 
     // Start is called before the first frame update

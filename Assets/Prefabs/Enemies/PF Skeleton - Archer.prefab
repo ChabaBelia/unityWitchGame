@@ -143,7 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 5482763201096026660}
   animator: {fileID: 5449141183139827390}
-  maxHealth: 200
+  maxHealth: 100
+  damage: 10
 --- !u!114 &3656430425145725132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,18 +1247,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5453117522551880377}
         m_TargetAssemblyTypeName: 
         m_MethodName: Launch
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3656430425145725134}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: hitPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -145,6 +145,7 @@ MonoBehaviour:
   healthBar: {fileID: 4782584583682228108}
   animator: {fileID: 8458852153644389687}
   maxHealth: 50
+  damage: 20
 --- !u!114 &3597177279011839702
 MonoBehaviour:
   m_ObjectHideFlags: 0

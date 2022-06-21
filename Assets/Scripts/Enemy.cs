@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 200;
     int currentHealth;
 
-    int damage = 10;
+    public int damage = 10;
     bool is_dead = false;
 
     int burn_interval = 75;
@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
     PixelMonster pm;
     AIPath aiPath;
     GameObject player;
-    bool colliding_player = false;
 
     void Start()
     {
@@ -70,7 +69,8 @@ public class Enemy : MonoBehaviour
     }
 
     public void hitPlayer() {
-        if(colliding_player) {
+        Debug.Log(aiPath.desiredVelocity.x);
+        if(aiPath.desiredVelocity.x > -0.01f && aiPath.desiredVelocity.x < 0.01f) {
             attackDirection = ((player.transform.position.x - gameObject.transform.position.x) > 0) ? 1 : 0;
             player.GetComponent<Player>().TakeDamage(damage, attackDirection);
         }
@@ -138,22 +138,4 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     } 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Enter");
-       if (collision.tag == "Player")
-       {
-           colliding_player = true;
-       }
-   }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-          Debug.Log("Exit");
-        if (collision.tag == "Player")
-        {
-            colliding_player = false;
-        }
-    }
 }
