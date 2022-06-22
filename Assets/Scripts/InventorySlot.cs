@@ -38,6 +38,7 @@ public class InventorySlot : MonoBehaviour
 
     public void onUseButton()
     {
+        Debug.Log("onUseButton !!!!!!!!!!!!!!!!!!! ");
         useItem();
     }
 

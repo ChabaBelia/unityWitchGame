@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +10,10 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 
-    public int chestNumber = 5;
+    public List<string> scenes;
+
+    public GameObject playerPrefab;
+    GameObject m_player;
 
 	void Awake ()
 	{
@@ -19,30 +24,38 @@ public class GameManager : MonoBehaviour
 		}
 
 		instance = this;
+
+        m_player = Instantiate(playerPrefab);
+
+        DontDestroyOnLoad(m_player);
+        DontDestroyOnLoad(this.gameObject);
 	}
 
 	#endregion
 
-    public List<GameObject> items;
-    public List<GameObject> chests;
-
-    private void Start() {
-        Debug.Log("GameManager: create " + chests.Count);
-        for (int i = 0 ; i < chests.Count; ++i)
-        {
-            Vector3 dest = transform.position;
-            dest.x += i * 2;
-            dest.z = 0;
-            Instantiate(chests[i], dest, Quaternion.identity);
-        }
+    public void GoToScene(int idScene) {
+        SceneManager.LoadScene(idScene);
     }
 
-    public GameObject popItem()
+    public void GoToScene(string nameScene) {
+        SceneManager.LoadScene(nameScene);
+    }
+
+    public void GoToMainMenu() {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void GoToExitLevelMenu() {
+        //SceneManager.LoadScene("ExitLevelMenuScene");
+        SceneManager.LoadScene("SC Pixel Art Top Down - Basic");
+    }
+
+    public void ExitGame() {
+        Application.Quit();
+    }
+
+    public GameObject getPlayer()
     {
-        int index = Random.Range(0, items.Count);
-        GameObject item = items[index];
-        items.RemoveAt(index);
-        return item;
+        return m_player;
     }
-
 }

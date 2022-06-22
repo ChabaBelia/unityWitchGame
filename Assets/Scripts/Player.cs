@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public Animator animator;
+    Animator animator;
     public int maxHealth = 100;
     public int currentHealth;
 
     public int maxMana = 100;
     public int currentMana;
 
-    public HealthBar healthBar;
-    public ManaBar manaBar;
+    HealthBar healthBar;
+    ManaBar manaBar;
 
     int mana_recovery_interval = 125;
     int health_recovery_interval = 1000;
@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();;
+        healthBar = UIManager.instance.gameObject.GetComponentsInChildren<HealthBar>()[0];
+        manaBar = UIManager.instance.gameObject.GetComponentsInChildren<ManaBar>()[0];
+
         currentHealth = maxHealth;
         currentMana = maxMana;
 

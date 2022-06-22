@@ -11,21 +11,33 @@ public class LevelGeneration : MonoBehaviour
         int rand = Random.Range(0, objects.Length);
         string spawnLayer = LayerMask.LayerToName(gameObject.layer);
         
-        GameObject enemy = Instantiate(objects[rand], transform.position, Quaternion.identity);
-        enemy.layer = gameObject.layer;
-        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-        if(player != null) {
-            enemy.GetComponent<AIDestinationSetter>().target = player.transform;
+        GameObject objectCopy = Instantiate(objects[rand], transform.position, Quaternion.identity);
+        objectCopy.layer = gameObject.layer;
+
+        if(objectCopy.GetComponent<SpriteRenderer>() != null)
+        {
+            string sortingLayer = LayerMask.LayerToName(objectCopy.layer);
+            objectCopy.GetComponent<SpriteRenderer>().sortingLayerName = sortingLayer;
+            SpriteRenderer[] srs = objectCopy.GetComponentsInChildren<SpriteRenderer>();
+            foreach ( SpriteRenderer sr in srs)
+            {
+                sr.sortingLayerName = sortingLayer;
+            }
         }
-      
+
+        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+        if(player != null && objectCopy.tag == "Enemy") {
+            objectCopy.GetComponent<AIDestinationSetter>().target = player.transform;
+            LevelManager.instance.addEnemy(objectCopy);
+        }
         
-        SkinnedMeshRenderer[] allChildrenMesh = enemy.GetComponentsInChildren<SkinnedMeshRenderer>();
+        SkinnedMeshRenderer[] allChildrenMesh = objectCopy.GetComponentsInChildren<SkinnedMeshRenderer>();
         foreach (SkinnedMeshRenderer mesh in allChildrenMesh) {
             mesh.sortingLayerName = spawnLayer;
             mesh.sortingOrder = 3;
         }
 
-        Canvas[] allChildrenCanvas = enemy.GetComponentsInChildren<Canvas>();
+        Canvas[] allChildrenCanvas = objectCopy.GetComponentsInChildren<Canvas>();
         foreach (Canvas canvas in allChildrenCanvas) {
             canvas.sortingLayerName = spawnLayer;
             canvas.sortingOrder = 3;

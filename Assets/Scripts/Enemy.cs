@@ -136,6 +136,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Disappear(float time)
     {
         yield return new WaitForSeconds(time);
+        LevelManager.instance.RemoveEnemy(gameObject);
         Destroy(gameObject);
     } 
 }

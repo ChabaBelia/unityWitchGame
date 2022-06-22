@@ -16,6 +16,10 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void Start()
         {
+            target = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+
+            transform.position = target.position;
+
             if (target == null) return;
 
             offset = transform.position - target.position;

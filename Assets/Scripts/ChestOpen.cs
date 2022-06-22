@@ -17,6 +17,18 @@ public class ChestOpen : MonoBehaviour
         chestClose.SetActive(true);
         chestOpen.SetActive(false);
         keyCode.SetActive(false);
+
+        string sortingLayer = LayerMask.LayerToName(gameObject.layer);
+        if(gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sortingLayerName = sortingLayer;
+        }
+
+        SpriteRenderer[] srs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        foreach ( SpriteRenderer sr in srs)
+        {
+            sr.sortingLayerName = sortingLayer;
+        }
     }
 
     // Update is called once per frame
@@ -25,6 +37,7 @@ public class ChestOpen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !droped) {
             if(enter2d) {
                 chestOpen.SetActive(true);
+                chestClose.SetActive(false);
                 drop();
                 droped = true;
             }
@@ -37,8 +50,23 @@ public class ChestOpen : MonoBehaviour
         _itemDrop.enabled = true;
         _itemDrop.onItemDrop = onItemDrop;
 
-        GameObject item = GameManager.instance.popItem();
+        GameObject item = LevelManager.instance.popItem();
         ItemPickup _item =  item.GetComponent<ItemPickup>();
+        
+        item.layer = gameObject.layer;
+
+        string sortingLayer = LayerMask.LayerToName(item.layer);
+        if(item.GetComponent<SpriteRenderer>() != null)
+        {
+            item.GetComponent<SpriteRenderer>().sortingLayerName = sortingLayer;
+        }
+
+        SpriteRenderer[] srs = item.GetComponentsInChildren<SpriteRenderer>();
+        foreach ( SpriteRenderer sr in srs)
+        {
+            sr.sortingLayerName = sortingLayer;
+        }
+
         Debug.Log("Drop Item: " + _item.m_item.name);
         _itemDrop.setItem(item);
         itemDrop.SetActive(true);
@@ -53,7 +81,6 @@ public class ChestOpen : MonoBehaviour
         if(collision.tag == "Player") {
             enter2d = true;
             keyCode.SetActive(true);
-            chestClose.SetActive(false);
         }
     }
 

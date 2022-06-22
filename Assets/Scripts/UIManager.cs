@@ -2,6 +2,23 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    #region Singleton
+
+	public static UIManager instance;
+
+	void Awake ()
+	{
+		if (instance != null)
+		{
+			Debug.LogWarning("More than one instance of Inventory found!");
+			return;
+		}
+
+		instance = this;
+	}
+
+	#endregion
+
     public InventoryUIManager m_inventoryUIManager;
     public SkillTreeUI m_skillTreeUI;
     // Start is called before the first frame update
